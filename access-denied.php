@@ -1,6 +1,6 @@
 <?php
 /**
-*Plugin Name: Minigiv Dashboard Access Denied
+*Plugin Name: Dashboard Access Denied
 *Author: Webchefz
 *Author URI: https://www.webchefz.com
 *Description: Dashboard Access Denied for users
