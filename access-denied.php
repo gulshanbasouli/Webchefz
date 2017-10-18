@@ -8,29 +8,26 @@
 Version: 0.1
 */
 
-
-
 // Remove Admin access for subscribers
 
-    /**
+ /**
  * Disable admin bar for subscribers and who cannot edit posts
  * for subscribers.
  */
-function themeblvd_disable_admin_bar() {
+function wbcDisabled() {
     if ( ! current_user_can('edit_posts') ) {
         add_filter('show_admin_bar', '__return_false');
     }
 }
-add_action( 'after_setup_theme', 'themeblvd_disable_admin_bar' );
+add_action( 'after_setup_theme', 'wbcDisabled' );
  
 /**
- * Redirect back to homepage and not allow access to
- * WP admin for Subscribers.
+ * Redirect back to homepage
  */
-function themeblvd_redirect_admin(){
+function wbcRedirect(){
     if ( ! defined('DOING_AJAX') && ! current_user_can('edit_posts') && DOING_AJAX) {
         wp_redirect( site_url() );
         exit;      
     }
 }
-add_action( 'admin_init', 'themeblvd_redirect_admin' );
+add_action( 'admin_init', 'wbcRedirect()' );
